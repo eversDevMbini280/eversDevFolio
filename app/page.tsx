@@ -1,49 +1,69 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Github, Linkedin, Mail, Phone, ExternalLink, Menu, X, ArrowRight, Download } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  ExternalLink,
+  Menu,
+  X,
+  ArrowRight,
+  Download,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Portfolio() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "experience", "contact"]
-      const scrollPosition = window.scrollY + 100
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "experience",
+        "contact",
+      ];
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
           }
         }
       }
-    }
+    };
 
     // Trigger line drawing animation on load
-    setIsLoaded(true)
+    setIsLoaded(true);
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -73,7 +93,10 @@ export default function Portfolio() {
         ></div>
 
         {/* Massive SVG Line Network */}
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           {/* Main Vertical Grid Lines */}
           <line
             x1="10%"
@@ -82,7 +105,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid1)"
             strokeWidth="3"
-            className={`animate-line-pulse ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-pulse ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="20%"
@@ -91,7 +116,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid2)"
             strokeWidth="4"
-            className={`animate-line-glow ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-glow ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="30%"
@@ -100,7 +127,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid3)"
             strokeWidth="3"
-            className={`animate-line-pulse ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-pulse ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="40%"
@@ -109,7 +138,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid4)"
             strokeWidth="2"
-            className={`animate-line-float ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-float ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="50%"
@@ -118,7 +149,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid5)"
             strokeWidth="5"
-            className={`animate-line-pulse ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-pulse ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="60%"
@@ -127,7 +160,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid6)"
             strokeWidth="3"
-            className={`animate-line-glow ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-glow ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="70%"
@@ -136,7 +171,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid7)"
             strokeWidth="4"
-            className={`animate-line-float ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-float ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="80%"
@@ -145,7 +182,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid8)"
             strokeWidth="3"
-            className={`animate-line-pulse ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-pulse ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="90%"
@@ -154,7 +193,9 @@ export default function Portfolio() {
             y2="100%"
             stroke="url(#gradientVivid9)"
             strokeWidth="2"
-            className={`animate-line-glow ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-glow ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
 
           {/* Horizontal Grid Lines */}
@@ -165,7 +206,9 @@ export default function Portfolio() {
             y2="10%"
             stroke="url(#gradientHoriz1)"
             strokeWidth="3"
-            className={`animate-line-float ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-float ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="0"
@@ -174,7 +217,9 @@ export default function Portfolio() {
             y2="20%"
             stroke="url(#gradientHoriz2)"
             strokeWidth="4"
-            className={`animate-line-pulse ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-pulse ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="0"
@@ -183,7 +228,9 @@ export default function Portfolio() {
             y2="30%"
             stroke="url(#gradientHoriz3)"
             strokeWidth="2"
-            className={`animate-line-glow ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-glow ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="0"
@@ -192,7 +239,9 @@ export default function Portfolio() {
             y2="40%"
             stroke="url(#gradientHoriz4)"
             strokeWidth="3"
-            className={`animate-line-float ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-float ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="0"
@@ -201,7 +250,9 @@ export default function Portfolio() {
             y2="50%"
             stroke="url(#gradientHoriz5)"
             strokeWidth="5"
-            className={`animate-line-pulse ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-pulse ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="0"
@@ -210,7 +261,9 @@ export default function Portfolio() {
             y2="60%"
             stroke="url(#gradientHoriz6)"
             strokeWidth="3"
-            className={`animate-line-glow ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-glow ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="0"
@@ -219,7 +272,9 @@ export default function Portfolio() {
             y2="70%"
             stroke="url(#gradientHoriz7)"
             strokeWidth="4"
-            className={`animate-line-float ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-float ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="0"
@@ -228,7 +283,9 @@ export default function Portfolio() {
             y2="80%"
             stroke="url(#gradientHoriz8)"
             strokeWidth="2"
-            className={`animate-line-pulse ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-pulse ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
           <line
             x1="0"
@@ -237,7 +294,9 @@ export default function Portfolio() {
             y2="90%"
             stroke="url(#gradientHoriz9)"
             strokeWidth="3"
-            className={`animate-line-glow ${isLoaded ? "animate-draw-line" : ""}`}
+            className={`animate-line-glow ${
+              isLoaded ? "animate-draw-line" : ""
+            }`}
           />
 
           {/* Diagonal Lines Network */}
@@ -443,7 +502,13 @@ export default function Portfolio() {
           {/* Vivid Gradients with Intense Colors */}
           <defs>
             {/* Vertical Gradients */}
-            <linearGradient id="gradientVivid1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid1"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(168, 85, 247, 0.8)">
                 <animate
@@ -464,7 +529,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientVivid2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid2"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="20%" stopColor="rgba(34, 211, 238, 0.9)">
                 <animate
@@ -485,7 +556,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientVivid3" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid3"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="25%" stopColor="rgba(139, 92, 246, 0.85)">
                 <animate
@@ -506,7 +583,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientVivid4" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid4"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(147, 51, 234, 0.8)">
                 <animate
@@ -527,7 +610,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientVivid5" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid5"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="20%" stopColor="rgba(219, 39, 119, 0.9)">
                 <animate
@@ -556,7 +645,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientVivid6" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid6"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(79, 70, 229, 0.8)">
                 <animate
@@ -577,7 +672,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientVivid7" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid7"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="25%" stopColor="rgba(16, 185, 129, 0.8)">
                 <animate
@@ -598,7 +699,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientVivid8" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid8"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(245, 101, 101, 0.85)">
                 <animate
@@ -619,7 +726,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientVivid9" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientVivid9"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(251, 146, 60, 0.8)">
                 <animate
@@ -641,7 +754,13 @@ export default function Portfolio() {
             </linearGradient>
 
             {/* Horizontal Gradients */}
-            <linearGradient id="gradientHoriz1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz1"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="25%" stopColor="rgba(168, 85, 247, 0.7)">
                 <animate
@@ -662,7 +781,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientHoriz2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz2"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="20%" stopColor="rgba(59, 130, 246, 0.8)">
                 <animate
@@ -683,7 +808,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientHoriz3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz3"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(34, 211, 238, 0.75)">
                 <animate
@@ -704,7 +835,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientHoriz4" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz4"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="25%" stopColor="rgba(236, 72, 153, 0.8)">
                 <animate
@@ -725,7 +862,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientHoriz5" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz5"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="15%" stopColor="rgba(139, 92, 246, 0.9)">
                 <animate
@@ -754,7 +897,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientHoriz6" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz6"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(79, 70, 229, 0.8)">
                 <animate
@@ -775,7 +924,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientHoriz7" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz7"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="25%" stopColor="rgba(16, 185, 129, 0.8)">
                 <animate
@@ -796,7 +951,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientHoriz8" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz8"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(245, 101, 101, 0.85)">
                 <animate
@@ -817,7 +978,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientHoriz9" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientHoriz9"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(251, 146, 60, 0.8)">
                 <animate
@@ -839,7 +1006,13 @@ export default function Portfolio() {
             </linearGradient>
 
             {/* Diagonal Gradients */}
-            <linearGradient id="gradientDiag1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient
+              id="gradientDiag1"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="50%" stopColor="rgba(168, 85, 247, 0.9)">
                 <animate
@@ -852,7 +1025,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientDiag2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <linearGradient
+              id="gradientDiag2"
+              x1="100%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="50%" stopColor="rgba(236, 72, 153, 0.85)">
                 <animate
@@ -865,7 +1044,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientDiag3" x1="0%" y1="25%" x2="75%" y2="100%">
+            <linearGradient
+              id="gradientDiag3"
+              x1="0%"
+              y1="25%"
+              x2="75%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="50%" stopColor="rgba(34, 211, 238, 0.8)">
                 <animate
@@ -878,7 +1063,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientDiag4" x1="25%" y1="0%" x2="100%" y2="75%">
+            <linearGradient
+              id="gradientDiag4"
+              x1="25%"
+              y1="0%"
+              x2="100%"
+              y2="75%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="50%" stopColor="rgba(219, 39, 119, 0.8)">
                 <animate
@@ -891,7 +1082,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientDiag5" x1="0%" y1="75%" x2="25%" y2="100%">
+            <linearGradient
+              id="gradientDiag5"
+              x1="0%"
+              y1="75%"
+              x2="25%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="50%" stopColor="rgba(79, 70, 229, 0.9)">
                 <animate
@@ -904,7 +1101,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientDiag6" x1="75%" y1="0%" x2="100%" y2="25%">
+            <linearGradient
+              id="gradientDiag6"
+              x1="75%"
+              y1="0%"
+              x2="100%"
+              y2="25%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="50%" stopColor="rgba(16, 185, 129, 0.85)">
                 <animate
@@ -918,7 +1121,13 @@ export default function Portfolio() {
             </linearGradient>
 
             {/* Curve Gradients */}
-            <linearGradient id="gradientCurve1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientCurve1"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="25%" stopColor="rgba(168, 85, 247, 0.9)">
                 <animate
@@ -939,7 +1148,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientCurve2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientCurve2"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(59, 130, 246, 0.9)">
                 <animate
@@ -960,7 +1175,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientCurve3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientCurve3"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="25%" stopColor="rgba(236, 72, 153, 0.85)">
                 <animate
@@ -981,7 +1202,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientCurve4" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="gradientCurve4"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="20%" stopColor="rgba(79, 70, 229, 0.9)">
                 <animate
@@ -1060,7 +1287,13 @@ export default function Portfolio() {
             </radialGradient>
 
             {/* Polygon Gradients */}
-            <linearGradient id="gradientPoly1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient
+              id="gradientPoly1"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="rgba(79, 70, 229, 0.8)">
                 <animate
                   attributeName="stop-color"
@@ -1079,7 +1312,13 @@ export default function Portfolio() {
               </stop>
             </linearGradient>
 
-            <linearGradient id="gradientPoly2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient
+              id="gradientPoly2"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="rgba(251, 146, 60, 0.85)">
                 <animate
                   attributeName="stop-color"
@@ -1099,7 +1338,13 @@ export default function Portfolio() {
             </linearGradient>
 
             {/* Spiral Gradients */}
-            <linearGradient id="gradientSpiral1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient
+              id="gradientSpiral1"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(168, 85, 247, 0.8)">
                 <animate
@@ -1120,7 +1365,13 @@ export default function Portfolio() {
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
 
-            <linearGradient id="gradientSpiral2" x1="100%" y1="100%" x2="0%" y2="0%">
+            <linearGradient
+              id="gradientSpiral2"
+              x1="100%"
+              y1="100%"
+              x2="0%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="transparent" />
               <stop offset="30%" stopColor="rgba(59, 130, 246, 0.85)">
                 <animate
@@ -1188,7 +1439,9 @@ export default function Portfolio() {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-sm border-b border-white/10">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
-              <div className="text-sm font-medium text-white">Evers Dev MBINI</div>
+              <div className="text-sm font-medium text-white">
+                Evers Dev MBINI
+              </div>
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center space-x-5">
@@ -1204,7 +1457,9 @@ export default function Portfolio() {
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
                     className={`text-sm transition-all duration-200 ${
-                      activeSection === item.id ? "text-white" : "text-gray-400 hover:text-white"
+                      activeSection === item.id
+                        ? "text-white"
+                        : "text-gray-400 hover:text-white"
                     }`}
                   >
                     {item.label}
@@ -1214,8 +1469,15 @@ export default function Portfolio() {
 
               {/* Mobile menu button */}
               <div className="md:hidden">
-                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-400 hover:text-white">
-                  {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-gray-400 hover:text-white"
+                >
+                  {isMenuOpen ? (
+                    <X className="h-5 w-5" />
+                  ) : (
+                    <Menu className="h-5 w-5" />
+                  )}
                 </button>
               </div>
             </div>
@@ -1247,12 +1509,15 @@ export default function Portfolio() {
         </nav>
 
         {/* Hero Section */}
-        <section id="home" className="relative z-10 min-h-screen flex items-center justify-center px-6">
+        <section
+          id="home"
+          className="relative z-10 min-h-screen flex items-center justify-center px-6"
+        >
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-12">
-              <div className="relative w-32 h-32 mx-auto mt-20 mb-8">
+              <div className="relative w-64 h-64 mx-auto mt-20 mb-8">
                 <Image
-                  src="/photo.png?height=512&width=512"
+                  src="/everdev.jpg?height=512&width=512"
                   alt="Evers Darrell MBINI"
                   width={512}
                   height={512}
@@ -1264,11 +1529,13 @@ export default function Portfolio() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight">
               Développeur BACKEND
               <br />
-              <span className="text-gray-500 text-3xl">Evers Darrell MBINI</span>
+              <span className="text-gray-500 text-3xl">
+                Evers Darrell MBINI
+              </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Création d'APIs robustes et de solutions évolutives avec Django et les technologies modernes.
+              "J'apprend des bugs d'hier pour faire de vos rêves d'aujourd'hui les inovations de demains".
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1295,30 +1562,41 @@ export default function Portfolio() {
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-medium mb-8 text-white">À Propos de Moi</h2>
+                <h2 className="text-4xl md:text-5xl font-medium mb-8 text-white">
+                  À Propos de Moi
+                </h2>
                 <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
                   <p>
-                    Je suis un développeur backend passionné qui a commencé son parcours il y a moins d'un an. Bien que
-                    nouveau dans le domaine, j'ai rapidement acquis des bases solides en programmation grâce à la
-                    réflexion algorithmique et à la modélisation de bases de données en utilisant MCD/MLD.
+                    Je suis un développeur backend passionné qui a commencé son
+                    parcours il y a un an. Bien que nouveau dans le
+                    domaine, j'ai rapidement acquis des bases solides en
+                    programmation grâce à la réflexion algorithmique et à la
+                    modélisation de bases de données en utilisant MCD/MLD.
                     <br />
-                    Passionné par le développement back-end, je me spécialise dans la création d'API REST et RESTful,
-                    la gestion de bases de données. Bien que débutant dans le domaine, ma motivation et ma capacité
-                    d'apprentissage rapide me permettent de relever des défis techniques complexes.
+                    Passionné par le développement back-end, je me spécialise
+                    dans la création d'API REST et RESTful, la gestion de bases
+                    de données. Bien que débutant dans le domaine, ma motivation
+                    et ma capacité d'apprentissage rapide me permettent de
+                    relever des défis techniques complexes.
                   </p>
                   <p>
-                    Mon objectif est de devenir un développeur full-stack senior, et j'apprends constamment de nouvelles
-                    technologies et les meilleures pratiques pour améliorer mes compétences et livrer des solutions de
-                    haute qualité.
+                    Mon objectif est de devenir un développeur full-stack
+                    senior, et j'apprends constamment de nouvelles technologies
+                    et les meilleures pratiques pour améliorer mes compétences
+                    et livrer des solutions de haute qualité.
                     <br />
-                    Mon parcours autodidacte m'a permis de maîtriser les fondamentaux de la programmation et de développer 
-                    une approche méthodique pour résoudre les problèmes. Je suis constamment à la recherche de nouvelles 
-                    technologies à apprendre et de projets stimulants à réaliser.
+                    Mon parcours autodidacte m'a permis de maîtriser les
+                    fondamentaux de la programmation et de développer une
+                    approche méthodique pour résoudre les problèmes. Je suis
+                    constamment à la recherche de nouvelles technologies à
+                    apprendre et de projets stimulants à réaliser.
                   </p>
 
                   <div className="pt-4">
                     <Button
-                      onClick={() => window.open("/cv-evers-darrell-mbini.pdf", "_blank")}
+                      onClick={() =>
+                        window.open("/cv-evers-darrell-mbini.pdf", "_blank")
+                      }
                       className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:shadow-[0_0_25px_rgba(139,92,246,0.6)] px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 group"
                     >
                       <Download className="w-4 h-4 group-hover:animate-bounce" />
@@ -1330,12 +1608,20 @@ export default function Portfolio() {
 
               <div className="grid grid-cols-2 gap-8">
                 <div className="text-center">
-                  <div className="text-3xl font-medium text-white mb-2">100%</div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wider">Autodidacte</div>
+                  <div className="text-3xl font-medium text-white mb-2">
+                    100%
+                  </div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wider">
+                    Autodidacte
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-medium text-white mb-2">24/7</div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wider">Mode Apprentissage</div>
+                  <div className="text-3xl font-medium text-white mb-2">
+                    7/7jrs
+                  </div>
+                  <div className="text-sm text-gray-500 uppercase tracking-wider">
+                    Mode Apprentissage
+                  </div>
                 </div>
               </div>
             </div>
@@ -1343,7 +1629,10 @@ export default function Portfolio() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="relative z-10 py-32 px-6 bg-gray-950/50">
+        <section
+          id="skills"
+          className="relative z-10 py-32 px-6 bg-gray-950/50"
+        >
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-medium text-center mb-20 text-white">
               Compétences & Technologies
@@ -1351,15 +1640,17 @@ export default function Portfolio() {
 
             {/* Backend Skills */}
             <div className="mb-20">
-              <h3 className="text-2xl font-medium text-white mb-12">Expertise Backend</h3>
+              <h3 className="text-2xl font-medium text-white mb-12">
+                Expertise Backend
+              </h3>
 
               <div className="grid md:grid-cols-2 gap-6 mb-12">
                 {[
                   "Gestion de bases de données avec SQL (PostgreSQL, MySQL, SQLite)",
                   "Création d'APIs RESTful avec Django",
-                  "Intégration de services tiers (Gmail)",
+                  "Intégration de services tiers (Gmail...)",
                   "Gestion de tokens (JWT, OAuth)",
-                  "Déploiement cloud avec Vercel",
+                  "Déploiement cloud avec Vercel et Render",
                   "Contrôle de version et collaboration via Git et GitHub",
                 ].map((skill, index) => (
                   <div
@@ -1371,12 +1662,16 @@ export default function Portfolio() {
                   </div>
                 ))}
               </div>
-              
-              <h4 className="text-2xl font-medium text-white mb-12">Technologies Utilisées</h4>
+
+              <h4 className="text-2xl font-medium text-white mb-12">
+                Technologies Utilisées
+              </h4>
 
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="p-6 rounded-xl border border border-pink-500/50  hover:shadow-pink-500 hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] transition-all duration-300 bg-gray/30 backdrop-blur-sm">
-                  <h4 className="text-lg font-medium text-white mb-4">Langages</h4>
+                  <h4 className="text-lg font-medium text-white mb-4">
+                    Langages
+                  </h4>
                   <div className="space-y-3">
                     <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">
                       Python
@@ -1385,7 +1680,9 @@ export default function Portfolio() {
                 </div>
 
                 <div className="p-6 rounded-xl border border border-pink-500/50  hover:shadow-pink-500 hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] transition-all duration-300 bg-gray/30 backdrop-blur-sm">
-                  <h4 className="text-lg font-medium text-white mb-4">Frameworks</h4>
+                  <h4 className="text-lg font-medium text-white mb-4">
+                    Frameworks
+                  </h4>
                   <div className="space-y-3">
                     <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm mr-2 mb-2">
                       Django
@@ -1397,7 +1694,9 @@ export default function Portfolio() {
                 </div>
 
                 <div className="p-6 rounded-xl border border border-pink-500/50  hover:shadow-pink-500 hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] transition-all duration-300 bg-gray/30 backdrop-blur-sm">
-                  <h4 className="text-lg font-medium text-white mb-4">Bases de Données</h4>
+                  <h4 className="text-lg font-medium text-white mb-4">
+                    Bases de Données
+                  </h4>
                   <div className="space-y-3">
                     <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm mr-2 mb-2">
                       PostgreSQL
@@ -1415,10 +1714,14 @@ export default function Portfolio() {
 
             {/* Tools */}
             <div className="mb-20">
-              <h4 className="text-xl font-medium text-white mb-8">Outils de Développement</h4>
+              <h4 className="text-xl font-medium text-white mb-8">
+                Outils de Développement
+              </h4>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="p-6 rounded-xl border border-pink-500/50  hover:shadow-pink-500 hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] transition-all duration-300 bg-gray/30 backdrop-blur-sm">
-                  <h5 className="text-lg font-medium text-white mb-4">Contrôle de Version</h5>
+                  <h5 className="text-lg font-medium text-white mb-4">
+                    Contrôle de Version
+                  </h5>
                   <div className="space-y-3">
                     <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm mr-2">
                       Git
@@ -1430,10 +1733,15 @@ export default function Portfolio() {
                 </div>
 
                 <div className="p-6 rounded-xl border border border-pink-500/50  hover:shadow-pink-500 hover:shadow-[0_0_25px_rgba(236,72,153,0.6)] transition-all duration-300 bg-gray-30 backdrop-blur-sm">
-                  <h5 className="text-lg font-medium text-white mb-4">Déploiement</h5>
+                  <h5 className="text-lg font-medium text-white mb-4">
+                    Déploiement
+                  </h5>
                   <div className="space-y-3">
-                    <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">
+                    <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm mr-2">
                       Vercel
+                    </span>
+                    <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">
+                      Render
                     </span>
                   </div>
                 </div>
@@ -1443,40 +1751,52 @@ export default function Portfolio() {
             {/* Frontend Skills */}
             <div className="p-8 rounded-xl mb-12 ">
               <p className="text-lg text-gray-400 text-center">
-                En plus des technologies backend, j'ai quelques compétences dans les langages et outils frontend:
+                En plus des technologies backend, j'ai quelques compétences dans
+                les langages et outils frontend:
               </p>
             </div>
 
             <div className="mb-12">
-              <h3 className="text-2xl font-medium text-white mb-8">Compétences Frontend</h3>
+              <h3 className="text-2xl font-medium text-white mb-8">
+                Compétences Frontend
+              </h3>
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                {["Création d'interfaces", "Conception de maquettes"].map((skill, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start space-x-3 p-6 rounded-xl border-2 border-cyan-500/50 hover:shadow-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300 bg-gray/30 backdrop-blur-sm"
-                  >
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></div>
-                    <span className="text-white font-medium">{skill}</span>
-                  </div>
-                ))}
+                {["Création d'interfaces", "Conception de maquettes"].map(
+                  (skill, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start space-x-3 p-6 rounded-xl border-2 border-cyan-500/50 hover:shadow-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300 bg-gray/30 backdrop-blur-sm"
+                    >
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></div>
+                      <span className="text-white font-medium">{skill}</span>
+                    </div>
+                  )
+                )}
               </div>
 
-              <h4 className="text-2xl font-medium text-white mb-12">Technologies Utilisées</h4>
-
+              <h4 className="text-2xl font-medium text-white mb-12">
+                Technologies Utilisées
+              </h4>
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="p-6 rounded-xl border border-cyan-500/50  hover:shadow-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300 bg-gray/30 backdrop-blur-sm">
-                  <h4 className="text-lg font-medium text-white mb-4">Langages</h4>
+                  <h4 className="text-lg font-medium text-white mb-4">
+                    Langages
+                  </h4>
                   <div className="space-y-3">
                     <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm mr-2 mb-2">
                       HTML
                     </span>
-                    <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">CSS</span>
+                    <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">
+                      CSS
+                    </span>
                   </div>
                 </div>
 
                 <div className="p-6 rounded-xl border border-cyan-500/50  hover:shadow-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300 bg-gray/30 backdrop-blur-sm">
-                  <h4 className="text-lg font-medium text-white mb-4">Framework</h4>
+                  <h4 className="text-lg font-medium text-white mb-4">
+                    Framework
+                  </h4>
                   <div className="space-y-3">
                     <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">
                       Next.js
@@ -1487,12 +1807,16 @@ export default function Portfolio() {
             </div>
 
             <div>
-              <h4 className="text-xl font-medium text-white mb-8">Outils de Design</h4>
+              <h4 className="text-xl font-medium text-white mb-8">
+                Outils de Design
+              </h4>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="p-6 rounded-xl border border-cyan-500/50  hover:shadow-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] backdrop-blur-sm transition-all duration-300 bg-gray/30">
-                
                   <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm mr-2">
                     Figma
+                  </span>
+                  <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm  mr-2">
+                    Canvas
                   </span>
                   <span className="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">
                     Pinterest
@@ -1506,7 +1830,9 @@ export default function Portfolio() {
         {/* Projects Section */}
         <section id="projects" className="relative z-10 py-32 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-medium text-center mb-20 text-white">Projets</h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-center mb-20 text-white">
+              Projets
+            </h2>
 
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Project 1 */}
@@ -1519,20 +1845,27 @@ export default function Portfolio() {
                     className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-3 pl-7">MyAppBirthday</h3>
+                <h3 className="text-2xl font-medium text-white mb-3 pl-7">
+                  MyAppBirthday
+                </h3>
                 <p className="text-gray-400 mb-4 leading-relaxed px-5">
-                  Une application web qui simplifie la gestion des invités et des invitations pour les fêtes
-                  d'anniversaire. Dispose d'une interface intuitive avec système de notifications et gestion des RSVP.
+                  Une application web qui simplifie la gestion des invités et
+                  des invitations pour les fêtes d'anniversaire. Dispose d'une
+                  interface intuitive avec système de notifications et gestion
+                  des RSVP.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6 px-6">
                   {["Next.js", "Django", "Git", "Figma"].map((tech) => (
-                    <span key={tech} className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-s">
+                    <span
+                      key={tech}
+                      className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-s"
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
                 <Link
-                  href="https://github.com/Evers280/appiBirthday.git"
+                  href="https://github.com/eversDevMbini280/appiBirthday.git"
                   target="_blank"
                   className="inline-flex items-center text-white hover:text-gray-300 hover:shadow-[0_0_15px_rgba(34,211,238,0.6)] transition-all duration-300 px-5 py-5"
                 >
@@ -1552,14 +1885,21 @@ export default function Portfolio() {
                     className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
-                <h3 className="text-2xl font-medium text-white mb-3 pl-7">gestPloided</h3>
+                <h3 className="text-2xl font-medium text-white mb-3 pl-7">
+                  gestPloided
+                </h3>
                 <p className="text-gray-400 mb-4 leading-relaxed px-5">
-                  Une plateforme complète de gestion des employés avec des fonctionnalités avancées de tri et de filtrage. 
-                  Interface moderne avec tableaux de bord personnalisables.
+                  Une plateforme complète de gestion des employés avec des
+                  fonctionnalités avancées de tri et de filtrage. Interface
+                  moderne avec tableaux de bord personnalisables entièrement
+                  réaliser en monolitique.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6 pl-5">
-                  {["Next.js", "Django", "Git", "Figma"].map((tech) => (
-                    <span key={tech} className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm">
+                  {["Django", "Git", "Figma"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -1579,26 +1919,35 @@ export default function Portfolio() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="relative z-10 py-32 px-6 bg-gray-950/50">
+        <section
+          id="experience"
+          className="relative z-10 py-32 px-6 bg-gray-950/50"
+        >
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-medium text-center mb-20 text-white">Expérience</h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-center mb-20 text-white">
+              Expérience
+            </h2>
 
             <div className="border border-gray-800 rounded-xl p-8 mb-12 hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] transition-all duration-300 bg-gray-900/30 backdrop-blur-lg">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl font-medium text-white">Développeur Backend</h3>
+                  <h3 className="text-2xl font-medium text-white">
+                    Développeur Backend
+                  </h3>
                   <p className="text-xl text-gray-400">Oguooe Labs</p>
                 </div>
                 <div className="mt-2 md:mt-0">
                   <span className="bg-green-900/20 text-green-400 px-3 py-1 rounded-full text-sm border border-green-800">
-                    Actuel
+                    Recent
                   </span>
                 </div>
               </div>
 
               <div className="space-y-4 mb-6">
                 <div>
-                  <h4 className="text-lg font-medium text-white mb-3">Responsabilités Clés :</h4>
+                  <h4 className="text-lg font-medium text-white mb-3">
+                    Responsabilités Clés :
+                  </h4>
                   <ul className="space-y-2 text-gray-400">
                     <li className="flex items-start">
                       <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></div>
@@ -1610,13 +1959,15 @@ export default function Portfolio() {
                     </li>
                     <li className="flex items-start">
                       <div className="w-1.5 h-1.5 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      Développement d'APIs RESTful 
+                      Développement d'APIs RESTful
                     </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-medium text-white mb-3">Réalisation Notable :</h4>
+                  <h4 className="text-lg font-medium text-white mb-3">
+                    Réalisation Notable :
+                  </h4>
                   <p className="text-gray-400">
                     Création d'une plateforme complète de gestion d'ordinateur.
                   </p>
@@ -1625,17 +1976,95 @@ export default function Portfolio() {
             </div>
 
             <div className="text-center">
-              <h3 className="text-2xl font-medium text-white mb-6">Formation</h3>
-              <div className="border border-gray-800 rounded-xl p-6 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300 bg-gray-900/25 backdrop-blur-md">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">A</span>
+                <h3 className="text-3xl font-bold text-white mb-10">
+                    Formation & Certifications 🏆
+                </h3>
+
+                {/* Conteneur de la Grille de Cartes */}
+                <div className="flex flex-wrap justify-center gap-6">
+                    
+                    {/* ======================================= */}
+                    {/* CARTE 1 : DÉVELOPPEUR BACK-END           */}
+                    {/* ======================================= */}
+                    <div className="w-full sm:w-80 lg:w-96 border border-gray-800 rounded-xl p-0 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 bg-gray-900/25 backdrop-blur-md overflow-hidden text-left">
+                        
+                        {/* Zone Image et Badge (Positionnement Relatif) */}
+                        <div className="relative">
+                            
+                            {/* Le Badge/Médaille (Positionné en Absolu en haut à droite) */}
+                            <div className="absolute top-4 right-4 bg-purple-600 text-white p-2 rounded-full shadow-lg z-10">
+                                {/* Icône de Casquette de Diplômé (Graduation Cap) - Lucide ou autre */}
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z"/></svg>
+                            </div>
+                            
+                            {/* L'Image du Diplôme */}
+                            {/* Remplacez l'URL/le composant Image par votre image du diplôme Back-end */}
+                            <img 
+                                className="w-full h-48 object-cover" 
+                                src="/diplome_backend_241.jpg" 
+                                alt="Certificat Développeur Back-end, École 241" 
+                            />
+                        </div>
+                        
+                        {/* Corps de la Carte */}
+                        <div className="p-6">
+                            <h4 className="text-xl font-bold text-white mb-2">
+                                Certificat Développeur Back-end
+                            </h4>
+                            <p className="text-sm text-gray-400 mb-4">
+                                Établissement : École 241 
+                                <br />
+                                Focus : Logique serveur, API REST, Bases de données.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* ======================================= */}
+                    {/* CARTE 2 : DÉVELOPPEUR WEB           */}
+                    {/* ======================================= */}
+                    <div className="w-full sm:w-80 lg:w-96 border border-gray-800 rounded-xl p-0 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300 bg-gray-900/25 backdrop-blur-md overflow-hidden text-left">
+                        
+                        <div className="relative">
+                            {/* Le Badge/Médaille */}
+                            <div className="absolute top-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-lg z-10">
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            
+                            {/* L'Image du Diplôme */}
+                            {/* Remplacez l'URL/le composant Image par votre image du diplôme Web */}
+                            <img 
+                                className="w-full h-48 object-cover" 
+                                src="/attestation_devweb_241.jpg" 
+                                alt="Attestation de Réussite Développeur Web, École 241" 
+                            />
+                        </div>
+                        
+                        {/* Corps de la Carte */}
+                        <div className="p-6">
+                            <h4 className="text-xl font-bold text-white mb-2">
+                                Attestation Développeur Web
+                            </h4>
+                            <p className="text-sm text-gray-400 mb-4">
+                                Établissement : École 241 (Programme D-CLIC)
+                                <br />
+                                Focus : Intégration, Front-end (HTML/CSS/JS), UI/UX.
+                            </p>
+                        </div>
+                    </div>
+                    
                 </div>
-                <h4 className="text-xl font-medium text-white mb-2">Autodidacte</h4>
-                <p className="text-gray-400">
-                  Apprentissage continu par l'étude autonome, les projets personnels et les ressources spécialisées en
-                  ligne.
-                </p>
-              </div>
+
+                {/* Section Autodidacte (Optionnelle, peut rester en texte si vous n'avez pas d'image) */}
+                <div className="mt-10 max-w-2xl mx-auto text-center p-6 border-t border-gray-800">
+                    <h4 className="text-xl font-bold text-white mb-2">
+                        Autodidacte & Apprentissage Continu
+                    </h4>
+                    <p className="text-gray-400">
+                        Mon apprentissage est continu grâce à l'étude autonome, les projets
+                        personnels et les ressources spécialisées en ligne pour rester à jour avec les dernières technologies.
+                    </p>
+                </div>
+
             </div>
           </div>
         </section>
@@ -1643,10 +2072,13 @@ export default function Portfolio() {
         {/* Contact Section */}
         <section id="contact" className="relative z-10 py-32 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-medium mb-8 text-white">Travaillons Ensemble</h2>
+            <h2 className="text-4xl md:text-5xl font-medium mb-8 text-white">
+              Travaillons Ensemble
+            </h2>
             <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-              Je suis toujours ouvert aux nouvelles opportunités et collaborations. Discutons de vos projets ou
-              simplement échangeons sur les technologies qui nous passionnent.
+              Je suis toujours ouvert aux nouvelles opportunités et
+              collaborations. Discutons de vos projets ou simplement échangeons
+              sur les technologies qui nous passionnent.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -1654,7 +2086,9 @@ export default function Portfolio() {
                 <div className="flex items-center space-x-4 p-4 rounded-lg border border-gray-800 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all duration-300 bg-gray-900/20 backdrop-blur-sm">
                   <Mail className="w-6 h-6 text-gray-400" />
                   <div className="text-left">
-                    <p className="text-sm text-gray-500 uppercase tracking-wider">Email</p>
+                    <p className="text-sm text-gray-500 uppercase tracking-wider">
+                      Email
+                    </p>
                     <Link
                       href="mailto:eversdevmbini@gmail.com"
                       className="text-white hover:text-gray-300 transition-colors"
@@ -1667,8 +2101,13 @@ export default function Portfolio() {
                 <div className="flex items-center space-x-4 p-4 rounded-lg border border-gray-800 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 bg-gray-900/20 backdrop-blur-sm">
                   <Phone className="w-6 h-6 text-gray-400" />
                   <div className="text-left">
-                    <p className="text-sm text-gray-500 uppercase tracking-wider">Téléphone</p>
-                    <Link href="tel:+241077259013" className="text-white hover:text-gray-300 transition-colors">
+                    <p className="text-sm text-gray-500 uppercase tracking-wider">
+                      Téléphone
+                    </p>
+                    <Link
+                      href="tel:+241077259013"
+                      className="text-white hover:text-gray-300 transition-colors"
+                    >
                       +241 077259013
                     </Link>
                   </div>
@@ -1679,7 +2118,9 @@ export default function Portfolio() {
                 <div className="flex items-center space-x-4 p-4 rounded-lg border border-gray-800 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300 bg-gray-900/20 backdrop-blur-sm">
                   <Linkedin className="w-6 h-6 text-gray-400" />
                   <div className="text-left">
-                    <p className="text-sm text-gray-500 uppercase tracking-wider">LinkedIn</p>
+                    <p className="text-sm text-gray-500 uppercase tracking-wider">
+                      LinkedIn
+                    </p>
                     <Link
                       href="https://www.linkedin.com/in/evers-darrell-mbini-066334318"
                       target="_blank"
@@ -1692,13 +2133,15 @@ export default function Portfolio() {
                 <div className="flex items-center space-x-4 p-4 rounded-lg border border-gray-800 hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all duration-300 bg-gray-900/20 backdrop-blur-sm">
                   <Github className="w-6 h-6 text-gray-400" />
                   <div className="text-left">
-                    <p className="text-sm text-gray-500 uppercase tracking-wider">GitHub</p>
+                    <p className="text-sm text-gray-500 uppercase tracking-wider">
+                      GitHub
+                    </p>
                     <Link
-                      href="https://github.com/Evers280"
+                      href="https://github.com/eversDevMbini280"
                       target="_blank"
                       className="text-white hover:text-gray-300 transition-colors"
                     >
-                      @Evers280
+                      @eversDevMbini280
                     </Link>
                   </div>
                 </div>
@@ -1706,7 +2149,9 @@ export default function Portfolio() {
             </div>
 
             <Button
-              onClick={() => window.open("mailto:eversdevmbini@gmail.com", "_blank")}
+              onClick={() =>
+                window.open("mailto:eversdevmbini@gmail.com", "_blank")
+              }
               className="bg-white text-black hover:bg-gray-100 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] px-8 py-3 rounded-full text-lg font-medium transition-all duration-300"
             >
               Envoyer un Message
@@ -1717,10 +2162,12 @@ export default function Portfolio() {
         {/* Footer */}
         <footer className="relative z-10 py-8 px-6 border-t border-gray-800">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
-            <p className="text-gray-500 text-sm">© 2025 Evers Darrell MBINI. Tous droits réservés.</p>
+            <p className="text-gray-500 text-sm">
+              © 2025 Evers Darrell MBINI. Tous droits réservés.
+            </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
-                href="https://github.com/Evers280"
+                href="https://github.com/eversDevMbini280"
                 target="_blank"
                 className="text-gray-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,211,238,0.6)] transition-all duration-300"
               >
@@ -1744,5 +2191,5 @@ export default function Portfolio() {
         </footer>
       </div>
     </div>
-  )
+  );
 }
