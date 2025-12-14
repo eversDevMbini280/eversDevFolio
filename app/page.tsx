@@ -1535,7 +1535,7 @@ export default function Portfolio() {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-              "J'apprend des bugs d'hier pour faire de vos rêves d'aujourd'hui les inovations de demains".
+              "J'apprend des bugs d'hier pour faire de vos rêves d'aujourd'hui les innovations de demains".
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1934,7 +1934,7 @@ export default function Portfolio() {
                   <h3 className="text-2xl font-medium text-white">
                     Développeur Backend
                   </h3>
-                  <p className="text-xl text-gray-400">Oguooe Labs</p>
+                  <p className="text-xl text-gray-400">Ogooue Labs</p>
                 </div>
                 <div className="mt-2 md:mt-0">
                   <span className="bg-green-900/20 text-green-400 px-3 py-1 rounded-full text-sm border border-green-800">
@@ -1984,7 +1984,7 @@ export default function Portfolio() {
                 <div className="flex flex-wrap justify-center gap-6">
                     
                     {/* ======================================= */}
-                    {/* CARTE 1 : DÉVELOPPEUR BACK-END           */}
+                    {/* CARTE 1 : DÉVELOPPEUR BACK-END          */}
                     {/* ======================================= */}
                     <div className="w-full sm:w-80 lg:w-96 border border-gray-800 rounded-xl p-0 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 bg-gray-900/25 backdrop-blur-md overflow-hidden text-left">
                         
@@ -2020,7 +2020,7 @@ export default function Portfolio() {
                     </div>
 
                     {/* ======================================= */}
-                    {/* CARTE 2 : DÉVELOPPEUR WEB           */}
+                    {/* CARTE 2 : DÉVELOPPEUR WEB               */}
                     {/* ======================================= */}
                     <div className="w-full sm:w-80 lg:w-96 border border-gray-800 rounded-xl p-0 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300 bg-gray-900/25 backdrop-blur-md overflow-hidden text-left">
                         
